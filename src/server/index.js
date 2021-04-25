@@ -30,7 +30,13 @@ app.post('/analyse', (req, res) => {
     let text = req.body.text
     console.log(text)
 
-    res.send(JSON.stringify({message: ' recived'}))
+    res.send(JSON.stringify({
+        scoreTag : 'scoreTag data',
+        agreement : 'agreement data',
+        subjectivity: 'subjectivity data',
+        confidence: 'confidence data',
+        irony: 'irony data'
+    }))
 
 })
 
