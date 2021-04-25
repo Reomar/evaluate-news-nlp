@@ -1,16 +1,34 @@
+// Import modules
+import {sendData} from "./requestHandler"
+import {updateDOM} from './updateDOM'
+require('dotenv').config();
+
+
 // select the DOM elements
-const scoreTag = document.querySelector("#score-tag")
-const agreement = document.querySelector("#agreement")
-const subjectivity = document.querySelector("#subjectivity")
-const confidence = document.querySelector("#confidence")
-const irony = document.querySelector("#irony")
 const btn = document.querySelector("#button")
 
 
 btn.addEventListener("click", analyseTxt)
 
-
+// This function send text to the server to be analysed and it then update the DOM with the returned data
 function analyseTxt(){
-        let txt = document.querySelector("#txt-area").value
-        console.log(txt)
+        // Get the text inside the input filed
+        let txtValue = document.querySelector("#txt-area").value
+
+        // Check if the text-area has a valid value
+        if (txtValue.length == 0){
+                // @TODO: update the dom with error
+                alert('Text filed is empty')
+                return 0
+        }
+
+        // Send data to the server and get the data
+        let article = {text: txtValue}
+
+        sendData(article).then(
+
+                // Update UI with the data
+                result => updateDOM(result)
+        )
+
 }

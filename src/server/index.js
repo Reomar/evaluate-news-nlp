@@ -26,9 +26,10 @@ app.get('/', function (req, res) {
 })
 
 app.post('/analyse', (req, res) => {
-    console.log('Request recived')
+    console.log('Request Received')
     let text = req.body.text
-    console.log(text)
+
+    // Get text 
 
     res.send(JSON.stringify({
         scoreTag : 'scoreTag data',
