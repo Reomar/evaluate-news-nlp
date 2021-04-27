@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NLP Analyse</title>
+    <link rel="stylesheet" href="./main.css">
 </head>
 <body>
     <header>
@@ -15,31 +16,35 @@
 
         <div id="input-section">
             <textarea id="txt-area" autofocus placeholder="Enter Text here"></textarea>
-            <div id="button">Analyse</div>
+            <div id="button">
+                <p>Analyse</p>
+            </div>
         </div>
 
-        <div id="result-section">
-            <p>Results</p>
-            <p>
-                Score Tag : <span class="values" id="score-tag"> P+</span>
-            </p>
+        <div id="result-section" class="hidden">
+            <h2>Results</h2>
 
-            <p>
-                Agreement : <span class="values" id="agreement"> AGREEMENT</span>
-            </p>
+            <div class="result-container">
+                <p>
+                    Score Tag &nbsp;&nbsp;&nbsp;: <span class="values" id="score-tag"> </span>
+                </p>
 
-            <P>
-                Subjectivity : <span class="values" id="subjectivity">OBJECTIVE</span>
-            </P>
+                <p>
+                    Agreement &nbsp;&nbsp;&nbsp;: <span class="values" id="agreement"> </span>
+                </p>
 
-            <p>
-                Confidence : <span class="values" id="confidence">100%</span>
-            </p>
+                <P>
+                    Subjectivity : <span class="values" id="subjectivity"></span>
+                </P>
 
-            <p>
-                Irony : <span class="values" id="irony">NONIRONIC</span>
-            </p>
+                <p>
+                    Confidence &nbsp;&nbsp;: <span class="values" id="confidence"></span>
+                </p>
 
+                <p>
+                    Irony &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <span class="values" id="irony"></span>
+                </p>
+            </div>
 
 
         </div>
