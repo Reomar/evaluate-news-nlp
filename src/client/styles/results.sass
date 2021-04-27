@@ -4,6 +4,7 @@
         text-align: center
         padding-top: 30px
         border-radius: 10px
+        display: none
 
         .result-container
                 width: fit-content
@@ -14,5 +15,15 @@
                         margin-bottom: 5px
 
 
-.hidden
-        display: none
+.show
+        display: block !important
+        animation: fadeIn 1s
+
+
+@keyframes fadeIn
+        0%
+                opacity : 0
+        100%
+                opacity : 1
+
+

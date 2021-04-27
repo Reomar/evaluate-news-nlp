@@ -3,6 +3,9 @@ const agreement = document.querySelector("#agreement")
 const subjectivity = document.querySelector("#subjectivity")
 const confidence = document.querySelector("#confidence")
 const irony = document.querySelector("#irony")
+const result = document.querySelector('#result-section')
+const btn = document.querySelector("#button")
+
 
 export function updateDOM(data){
         // Update dom element with data from the server
@@ -12,6 +15,11 @@ export function updateDOM(data){
         subjectivity.innerHTML = data.subjectivity
         confidence.innerHTML = data.confidence + '%'
         irony.innerHTML = data.irony
+
+        // Make the result section visible
+        result.classList.add('show')
+
+        btn.classList.remove('loading')
 
 }
 

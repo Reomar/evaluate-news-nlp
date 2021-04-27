@@ -1,7 +1,6 @@
 // Import modules
 import {sendData} from "./requestHandler"
 import {updateDOM} from './updateDOM'
-require('dotenv').config();
 
 
 // select the DOM elements
@@ -21,6 +20,8 @@ function analyseTxt(){
                 alert('Text filed is empty')
                 return 0
         }
+
+        btn.classList.add('loading')
 
         // Send data to the server and get the data
         let article = {text: txtValue}
