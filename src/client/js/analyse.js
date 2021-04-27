@@ -5,7 +5,7 @@ import {updateDOM} from './updateDOM'
 
 // select the DOM elements
 const btn = document.querySelector("#button")
-
+const txtArea = document.querySelector('#txt-area')
 
 btn.addEventListener("click", analyseTxt)
 
@@ -16,11 +16,11 @@ function analyseTxt(){
 
         // Check if the text-area has a valid value
         if (txtValue.length == 0){
-                // @TODO: update the dom with error
-                alert('Text filed is empty')
+                txtArea.classList.add('error')
                 return 0
         }
 
+        txtArea.classList.remove('error')
         btn.classList.add('loading')
 
         // Send data to the server and get the data
