@@ -30,7 +30,7 @@ app.post("/analyse", (req, res) => {
   // Get Text Analysis from Meaning Cloud Sentiment Analysis API version 2.1
   // https://learn.meaningcloud.com/developer/sentiment-analysis/2.1/doc/what-is-sentiment-analysis
 
-  const url = `https://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&of=json&txt=${text}&lang=auto`;
+  const url = `https://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&of=json&txt=${text}&lang=en`;
 
   fetch(url)
     .then((res) => res.json())
