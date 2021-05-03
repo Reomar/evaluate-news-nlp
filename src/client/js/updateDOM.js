@@ -17,7 +17,8 @@ export function updateDOM(data){
         irony.innerHTML = data.irony
 
         // Make the result section visible
-        result.classList.add('show')
+        result.classList.remove('hidden')
+        result.classList.add('animate')
 
         btn.classList.remove('loading')
 
