@@ -40,6 +40,7 @@ app.post("/analyse", (req, res) => {
       // Send the API Data to the font-end to be updated in the DOM
       res.send(
         JSON.stringify({
+          success : true,
           scoreTag: body.score_tag,
           agreement: body.agreement,
           subjectivity: body.subjectivity,
@@ -48,7 +49,13 @@ app.post("/analyse", (req, res) => {
         })
       );
     })
-    .catch((err) => console.log(err));
+    .catch((err) =>{
+      console.log(err)
+      res.send(
+        JSON.stringify({
+          success : false
+        }))
+    });
 });
 
 // designates what port the app will listen to for incoming requests
