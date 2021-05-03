@@ -3,9 +3,10 @@ const agreement = document.querySelector("#agreement")
 const subjectivity = document.querySelector("#subjectivity")
 const confidence = document.querySelector("#confidence")
 const irony = document.querySelector("#irony")
-const result = document.querySelector('#result-section')
 const btn = document.querySelector("#button")
-const intoSection = document.querySelector("#intro-section")
+const resultSection = document.querySelector('#result-section')
+const introSection = document.querySelector("#intro-section")
+const userErrorSection = document.querySelector("#user-error")
 
 
 export function updateDOM(data){
@@ -17,14 +18,14 @@ export function updateDOM(data){
         confidence.innerHTML = data.confidence + '%'
         irony.innerHTML = data.irony
 
+        //remove any 2nd section
+        removeAllSections()
+
         // Make the result section visible
-        result.classList.remove('hidden')
-        result.classList.add('animate')
+        resultSection.classList.remove('hidden')
+        resultSection.classList.add('animate')
 
         btn.classList.remove('loading')
-
-        // TODO: make sure to remove any other section
-        intoSection.classList.add('hidden')
 
 }
 
@@ -70,4 +71,20 @@ function convertScoreTag(score){
 
         return convertedScore
 
+}
+
+// Remove the 2nd section of the page
+export function removeAllSections(){
+
+        if (!('hidden' in introSection.classList)){
+                introSection.classList.add('hidden')
+        }
+
+        if (!('hidden' in resultSection.classList)){
+                resultSection.classList.add('hidden')
+        }
+
+        if (!('hidden' in userErrorSection.classList)){
+                userErrorSection.classList.add('hidden')
+        }
 }

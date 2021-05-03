@@ -1,11 +1,14 @@
 // Import modules
 import {sendData} from "./requestHandler"
-import {updateDOM} from './updateDOM'
+import {updateDOM, removeAllSections} from './updateDOM'
+import {isURL} from './validateURL'
 
 
 // select the DOM elements
 const btn = document.querySelector("#button")
 const txtArea = document.querySelector('#txt-area')
+const userErrorSection = document.querySelector("#user-error")
+
 
 btn.addEventListener("click", analyseTxt)
 
@@ -15,8 +18,16 @@ function analyseTxt(){
         let url = document.querySelector("#txt-area").value
 
         // Check if the text-area has a valid value
-        // TODO: Validate URL
-        if (url.length == 0){
+        if (url.length == 0 || !isURL(url)){
+
+                // remove any 2nd section
+                removeAllSections()
+
+                // Add user error section to the DOM
+                userErrorSection.classList.remove('hidden')
+                userErrorSection.classList.add('animate')
+
+                // Add a red border on the input
                 txtArea.classList.add('error')
                 return 0
         }
