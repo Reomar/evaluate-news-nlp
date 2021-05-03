@@ -6,7 +6,7 @@ import "../client/styles/base.sass"
 import "../client/styles/input.sass"
 import "../client/styles/results.sass"
 import "../client/styles/intro.sass"
-import "../client/styles/userError.sass"
+import "../client/styles/error.sass"
 
 // import imgs 
 import "../client/imgs/LayingDoodle.svg"
