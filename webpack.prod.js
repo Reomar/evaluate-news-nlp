@@ -8,7 +8,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 
 
 module.exports = {
-    entry: './src/client/index.js',
+    entry: ['./src/client/index.js'],
     mode: 'production',
     optimization: {
         minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
@@ -39,6 +39,11 @@ module.exports = {
             template: "./src/client/views/index.html",
             filename: "./index.html",
         }),
+        new HtmlWebPackPlugin({
+            template: "./src/client/views/offline.html",
+            filename: "./offline.html",
+        }),
+
         new MiniCssExtractPlugin({ filename: "[name].css" }),
         new WorkboxPlugin.GenerateSW({
             // these options encourage the ServiceWorkers to get in there fast
