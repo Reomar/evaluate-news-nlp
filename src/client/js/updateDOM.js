@@ -7,6 +7,7 @@ const btn = document.querySelector("#button")
 const resultSection = document.querySelector('#result-section')
 const introSection = document.querySelector("#intro-section")
 const userErrorSection = document.querySelector("#user-error")
+const serverErrorSection = document.querySelector('#server-error')
 
 
 export function updateDOM(data){
@@ -29,7 +30,18 @@ export function updateDOM(data){
 
 }
 
+export function displayServerError(){
 
+        //remove any 2nd section
+        removeAllSections()
+
+        // Make the Server error section visible
+        serverErrorSection.classList.remove('hidden')
+        serverErrorSection.classList.add('animate')
+
+        // Remove the button loading style
+        btn.classList.remove('loading')
+}
 
 /**
 *       Score tag can be translated into:
@@ -86,5 +98,9 @@ export function removeAllSections(){
 
         if (!('hidden' in userErrorSection.classList)){
                 userErrorSection.classList.add('hidden')
+        }
+
+        if (!('hidden' in serverErrorSection.classList)){
+                serverErrorSection.classList.add('hidden')
         }
 }

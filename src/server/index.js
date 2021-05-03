@@ -37,6 +37,11 @@ app.post("/analyse", (req, res) => {
       console.log("API Data Sent...");
       console.log("--------------------");
 
+      let status
+      if (body.status.code == 100){
+        throw new Error('Request failed')
+      }
+
       // Send the API Data to the font-end to be updated in the DOM
       res.send(
         JSON.stringify({
@@ -50,11 +55,11 @@ app.post("/analyse", (req, res) => {
       );
     })
     .catch((err) =>{
-      console.log(err)
-      res.send(
-        JSON.stringify({
-          success : false
-        }))
+        console.log(err)
+        res.send(
+          JSON.stringify({
+            success : false
+          }))
     });
 });
 

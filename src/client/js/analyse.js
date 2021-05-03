@@ -1,6 +1,6 @@
 // Import modules
 import {sendData} from "./requestHandler"
-import {updateDOM, removeAllSections} from './updateDOM'
+import {updateDOM, removeAllSections, displayServerError} from './updateDOM'
 import {isURL} from './validateURL'
 
 
@@ -36,10 +36,21 @@ function analyseTxt(){
         btn.classList.add('loading')
 
         // Send data to the server and get the data
-        sendData({url: url}).then(
+        sendData({url: url}).then((result) =>{
+
+                // Check if the request is completed successfully
+                if (!result.success){
+                        throw new Error("Request Failed")
+                }
 
                 // Update UI with the data
-                result => updateDOM(result)
-        )
+                updateDOM(result)
+        })
+        .catch((err) =>{
+                console.log(err)
+
+                // Update the DOM with the server error section
+                displayServerError()
+        })
 
 }
