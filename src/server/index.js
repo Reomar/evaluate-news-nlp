@@ -24,13 +24,12 @@ app.get("/", function (req, res) {
 
 app.post("/analyse", (req, res) => {
   console.log("Request Received...");
-  let text = req.body.text;
-  text = text.replace(/[^a-zA-Z ]/g, "")
+  let articleURL = req.body.url;
 
   // Get Text Analysis from Meaning Cloud Sentiment Analysis API version 2.1
   // https://learn.meaningcloud.com/developer/sentiment-analysis/2.1/doc/what-is-sentiment-analysis
 
-  const url = `https://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&of=json&txt=${text}&lang=en`;
+  const url = `https://api.meaningcloud.com/sentiment-2.1?key=${process.env.API_KEY}&of=json&url=${articleURL}&lang=en`;
 
   fetch(url)
     .then((res) => res.json())

@@ -12,10 +12,11 @@ btn.addEventListener("click", analyseTxt)
 // This function send text to the server to be analysed and it then update the DOM with the returned data
 function analyseTxt(){
         // Get the text inside the input filed
-        let txtValue = document.querySelector("#txt-area").value
+        let url = document.querySelector("#txt-area").value
 
         // Check if the text-area has a valid value
-        if (txtValue.length == 0){
+        // TODO: Validate URL
+        if (url.length == 0){
                 txtArea.classList.add('error')
                 return 0
         }
@@ -24,9 +25,7 @@ function analyseTxt(){
         btn.classList.add('loading')
 
         // Send data to the server and get the data
-        let article = {text: txtValue}
-
-        sendData(article).then(
+        sendData({url: url}).then(
 
                 // Update UI with the data
                 result => updateDOM(result)
