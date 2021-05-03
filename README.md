@@ -66,3 +66,6 @@ API_KEY = '<API key>'
 	
 ## Try a live Demo
 
+*https://evaluate-articles-nlp.herokuapp.com/*
+----
+![Sentiment analysis UI](https://i.ibb.co/1dLmrKS/Screenshot-20210503235331-1613x850.png)
