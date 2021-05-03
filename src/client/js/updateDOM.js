@@ -5,6 +5,7 @@ const confidence = document.querySelector("#confidence")
 const irony = document.querySelector("#irony")
 const result = document.querySelector('#result-section')
 const btn = document.querySelector("#button")
+const intoSection = document.querySelector("#intro-section")
 
 
 export function updateDOM(data){
@@ -21,6 +22,9 @@ export function updateDOM(data){
         result.classList.add('animate')
 
         btn.classList.remove('loading')
+
+        // TODO: make sure to remove any other section
+        intoSection.classList.add('hidden')
 
 }
 
