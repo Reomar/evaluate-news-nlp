@@ -53,7 +53,7 @@ export function displayServerError(){
 *      N+: strong negative
 *      NONE: without polarity
  */
-function convertScoreTag(score){
+export function convertScoreTag(score){
         let convertedScore
 
         switch(score){
